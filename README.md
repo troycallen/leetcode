@@ -1,2 +1,1 @@
-# leetcode
-LeetCode problems ported using extension
+Finally decided to start porting solved problems to GitHub 
