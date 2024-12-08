@@ -5,7 +5,7 @@ class Solution:
 
         res.append(intervals[0])
 
-        for start, end in intervals:
+        for start, end in intervals[1:]:
             prev_end = res[-1][1]
 
             if prev_end >= start:
