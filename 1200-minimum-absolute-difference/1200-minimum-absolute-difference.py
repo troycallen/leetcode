@@ -7,14 +7,16 @@ class Solution:
         res = []
 
         for i in range(1, len(arr)):
-            curr_diff = arr[i] - arr[i-1]
+            prev = arr[i-1]
+            curr = arr[i]
+            curr_diff = curr - prev
 
             if curr_diff < min_diff:
                 min_diff = curr_diff
-                res = [[arr[i-1], arr[i]]]
+                res = [[prev, curr]]
             
-            elif curr_diff == min_diff:
-                res.append([arr[i-1], arr[i]])
 
-            
+            elif curr_diff == min_diff:
+                res.append([prev,curr])
+
         return res
