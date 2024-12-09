@@ -13,33 +13,33 @@ class Solution:
         if not head:
             return None
 
-        # Initialize stack and dummy node
-        stack = []
-        dummy = Node(0, None, head, None)
-        curr = dummy
-        stack.append(head)
+        # Initialize variables
+        stack = [head]
+        prev = None
+        curr = None
+
+        # We set first var in stack to be the head so we can instantly pop 
 
         # Iterate through the stack
         while stack:
-            node = stack.pop()
+            # Pop the current node from the stack
+            curr = stack.pop()
 
-            # Connect current node to the flattened list
-            curr.next = node
-            node.prev = curr
+            # Connect the previous node to the current node
+            if prev:
+                prev.next = curr
+                curr.prev = prev
 
-            # Push next node to stack if exists
-            if node.next:
-                stack.append(node.next)
+            # Push the next node to the stack if it exists
+            if curr.next:
+                stack.append(curr.next)
 
-            # Push child node to stack if exists
-            if node.child:
-                stack.append(node.child)
-                node.child = None
+            # Push the child node to the stack if it exists
+            if curr.child:
+                stack.append(curr.child)
+                curr.child = None
 
-            # Move current pointer
-            curr = node
+            # Move to the next node
+            prev = curr
 
-        # Disconnect dummy node from the list
-        dummy.next.prev = None
-
-        return dummy.next
+        return head
