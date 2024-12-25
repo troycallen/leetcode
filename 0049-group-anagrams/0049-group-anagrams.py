@@ -1,16 +1,12 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        from collections import defaultdict
-        
-
         res = defaultdict(list)
-        for string in strs:
-            sorted_string = ''.join(sorted(string))
-            res[sorted_string].append(string)
+
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+            res[tuple(count)].append(s)
         
-        anagrams = list(res.values())
-        return anagrams
-            
-            
-            
-            
+        res = list(res.values())
+        return res
