@@ -3,9 +3,9 @@ class Codec:
         """Encodes a list of strings to a single string.
         """
         res = ""
-
         for s in strs:
-            res += str(len(s)) + "|" + s
+            res += str(len(s)) + "#" + s
+        return res
         
 
     def decode(self, s: str) -> List[str]:
