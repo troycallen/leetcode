@@ -15,6 +15,5 @@ class Solution:
         
         if max_heap:
             stone = -max_heap[0]
-            return stone
         return stone
                 
