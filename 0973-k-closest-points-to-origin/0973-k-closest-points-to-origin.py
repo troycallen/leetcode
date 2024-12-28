@@ -8,10 +8,12 @@ class Solution:
             x = point[0]
             y = point[1]
             dist = (x * x) + (y * y)
-            heapq.heappush(min_heap, (dist, (x,y)))
+            min_heap.append([dist,x,y])
         
+        heapq.heapify(min_heap)
         for i in range(k):
-            res.append(heapq.heappop(min_heap)[1])
+            dist, x, y = heapq.heappop(min_heap)
+            res.append([x,y])
         return res
 
  
