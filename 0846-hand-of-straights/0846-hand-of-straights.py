@@ -1,18 +1,21 @@
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
         count = Counter(hand)
-        #rderedCount = {k: v for k, v in count.items()}
+        count = dict(sorted(count.items()))
 
-        orderedCount = (dict(sorted(count.items())))
-        while orderedCount:
-            
-            minElem = next(iter(orderedCount))
-
-            for card in range(minElem, minElem + groupSize):
-                if card not in orderedCount:
+        while count:
+            min_elem = next(iter(count))
+            for i in range(min_elem, min_elem + groupSize):
+                if i not in count:
                     return False
-                orderedCount[card] -= 1
-                if orderedCount[card] == 0:
-                    orderedCount.pop(card)
+                
+                count[i] -= 1
+                if count[i] == 0:
+                    count.pop(i)
+            
         return True
+        
+
+        
+
 
