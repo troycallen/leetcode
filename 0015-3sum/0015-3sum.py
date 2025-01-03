@@ -7,8 +7,6 @@ class Solution:
 
         for i,a in enumerate(nums): 
             # dont use the same element twice
-            if i > 0 and a == nums[i -1]:
-                continue
             
             # need l to be 2nd potential element in the triplet
             l = i + 1
