@@ -5,11 +5,7 @@ class Solution:
 
         [-4, -1, -1, 0, 1, 2]
 
-        for i,a in enumerate(nums):
-            # It will always be positive solution so we can break
-            if a > 0:
-                break
-            
+        for i,a in enumerate(nums): 
             # dont use the same element twice
             if i > 0 and a == nums[i -1]:
                 continue
