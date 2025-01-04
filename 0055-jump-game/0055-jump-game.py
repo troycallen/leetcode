@@ -8,5 +8,4 @@ class Solution:
                 return False
             max_reach = max(max_reach, i + nums[i])
 
-            if max_reach >= goal:
-                return True
+        return True
