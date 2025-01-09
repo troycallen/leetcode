@@ -2,19 +2,19 @@ class Solution:
     def invalidTransactions(self, transactions: List[str]) -> List[str]:
         invalid = []
 
-        for i, transaction in enumerate(transactions):
-            name, time, amount, city = transaction.split(',')
+        for i, t1 in enumerate(transactions):
+            name, time, amount, city = t1.split(',')
+
             if int(amount) > 1000:
-                invalid.append(transaction)
+                invalid.append(t1)
                 continue
-
-            for j, transaction2 in enumerate(transactions):
-                name2, time2, amount2, city2 = transaction2.split(',')
-
-                if i != j:
-                    if name == name2 and city != city2 and abs(int(time) - int(time2)) <= 60:
-                        invalid.append(transaction)
-                        break
             
+            for j, t2 in enumerate(transactions):
+                if i != j:
+                    name2, time2, amount2, city2 = t2.split(',')
+
+                    if name == name2 and city != city2 and abs(int(time) - int(time2)) <= 60:
+                        invalid.append(t1)
+                        break
+
         return invalid
-       
