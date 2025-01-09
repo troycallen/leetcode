@@ -5,29 +5,32 @@ class RandomizedSet:
         self.numList = []
 
     def insert(self, val: int) -> bool:
-        res = val not in self.numMap
-
-        if res:
+        not_present = val not in self.numMap
+        if not_present:
             self.numMap[val] = len(self.numList)
             self.numList.append(val)
         
-        return res
-        
-    def remove(self, val: int) -> bool:
-        res = val in self.numMap
 
-        if res:
-            last = self.numList[-1]
+        return not_present
+
+    def remove(self, val: int) -> bool:
+        present = val in self.numMap
+        if present:
             index = self.numMap[val]
-            self.numList[index] = last
+            last_val = self.numList[-1]
+            self.numList[index] = last_val
             self.numList.pop()
-            self.numMap[last] = index
+            self.numMap[last_val] = index
             del self.numMap[val]
-        
-        return res
+            
+
+        return present
 
     def getRandom(self) -> int:
         return random.choice(self.numList)
+        
+
+
 
 
 # Your RandomizedSet object will be instantiated and called as such:
