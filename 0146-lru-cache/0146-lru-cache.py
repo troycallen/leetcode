@@ -1,27 +1,26 @@
 class LRUCache:
-
     def __init__(self, capacity: int):
-        self.cache = OrderedDict()
+        self.cache = {}
         self.capacity = capacity
-        
 
     def get(self, key: int) -> int:
         if key not in self.cache:
             return -1
-        self.cache.move_to_end(key)
         
-        return self.cache[key]
+        # Extract value, delete key, reinsert to move to end
+        value = self.cache[key]
+        del self.cache[key]
+        self.cache[key] = value
+        return value
 
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
-            self.cache.move_to_end(key)
-        
+            del self.cache[key]
+        elif len(self.cache) >= self.capacity:
+            # Remove first item (least recently used)
+            del self.cache[next(iter(self.cache))]
+            
         self.cache[key] = value
-        if len(self.cache.keys()) > self.capacity:
-            self.cache.popitem(last = False)
-
-    
-    from collections import OrderedDict
 
 
 # Your LRUCache object will be instantiated and called as such:
