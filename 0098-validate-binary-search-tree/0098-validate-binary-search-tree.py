@@ -4,16 +4,18 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def validate(node, low=-float('inf'), high=float('inf')):
+        def validate(node, left, right):
             if not node:
                 return True
             
-            if node.val <= low or node.val >= high:
+            if not (left < node.val < right):
                 return False
             
-            return (validate(node.left, low, node.val) and 
-                    validate(node.right, node.val, high))
+
+            return validate(node.left, left, node.val) and validate(node.right, node.val, right)
         
-        return validate(root)
+        res = validate(root, float('-inf'), float('inf'))
+        return res
