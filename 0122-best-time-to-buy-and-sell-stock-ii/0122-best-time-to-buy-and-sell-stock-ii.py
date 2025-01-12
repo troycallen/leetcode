@@ -3,7 +3,8 @@ class Solution:
         profit = 0
 
         for i in range(1, len(prices)):
+            diff = prices[i] - prices[i - 1]
             if prices[i] > prices[i-1]:
-                profit += prices[i] - prices[i-1]
+                profit += diff
         
         return profit
