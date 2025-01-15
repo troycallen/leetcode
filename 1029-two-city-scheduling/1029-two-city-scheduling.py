@@ -1,22 +1,19 @@
 class Solution:
     def twoCitySchedCost(self, costs: List[List[int]]) -> int:
-        costs.sort(key = lambda x : x[0])
-        #print(costs)
-
-        res = 0
-        diffs = []
-
-        for c1, c2 in costs:
-            diffs.append([c2-c1, c1, c2])
-
-        diffs.sort()
-        res = 0
-        for i in range(len(diffs)):
-            if i < len(diffs) // 2:
-                res += diffs[i][2]
+        costs.sort(key = lambda x : x[0] - x[1])
+        total = 0
+        
+        # First half goes to city A (these are the ones where A is cheaper, or least more expensive)
+        # Second half goes to city B
+        for i in range(len(costs)):
+            if i < len(costs) // 2:
+                total += costs[i][0]
             else:
-                res += diffs[i][1]
-            
-        return res
+                total += costs[i][1]
+        
+        return total
+
+        
+
 
             
