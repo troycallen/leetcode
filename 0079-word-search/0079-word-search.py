@@ -5,20 +5,20 @@ class Solution:
 
         path = set()
 
-        def dfs(r , c, i):
+        def dfs(r, c , i):
             if i == len(word):
                 return True
             
-            if r < 0 or c < 0 or r >= ROWS or c >= COLS or board[r][c] != word[i] or (r,c) in path:
+            if r < 0 or c < 0 or c >= COLS or r >= ROWS or board[r][c] != word[i] or (r,c) in path:
                 return False
 
             
             path.add((r,c))
-            res = (dfs(r + 1, c, i + 1) or
-                dfs(r, c + 1, i + 1) or
-                dfs(r - 1, c, i + 1) or
-                dfs(r, c - 1, i + 1))
-            
+            res = (dfs(r + 1, c, i + 1)or 
+            dfs(r - 1, c, i + 1)or 
+            dfs(r, c - 1, i + 1)or 
+            dfs(r, c + 1, i + 1))
+
             path.remove((r,c))
             return res
         
@@ -26,6 +26,6 @@ class Solution:
             for c in range(COLS):
                 if dfs(r,c,0):
                     return True
+        
         return False
-
             
