@@ -12,7 +12,7 @@ class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head:
             return None
-
+        
         prev = None
         curr = None
         stack = [head]
@@ -32,9 +32,9 @@ class Solution:
                 curr.child = None
             
             prev = curr
-                
+        
         return head
-            
+        
 
             
                 
