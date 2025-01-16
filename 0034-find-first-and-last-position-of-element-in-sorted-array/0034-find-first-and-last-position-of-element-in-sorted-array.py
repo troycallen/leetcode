@@ -4,11 +4,10 @@ class Solution:
         r = self.binarySearch(nums, target, False)
         return [l, r]
 
-    def binarySearch(self, nums, target, left_bias):
+    def binarySearch(self, nums, target, search_left):
         L = 0
         R = len(nums) - 1
         res = -1
-        
         while L <= R:
             mid = (L + R) // 2
             if nums[mid] < target:
@@ -17,10 +16,16 @@ class Solution:
                 R = mid - 1
             else:
                 res = mid
-                if left_bias:
+                if search_left:
                     R = mid - 1
                 else:
                     L = mid + 1
         return res
+
+
+        
+
+        
+        
 
         
