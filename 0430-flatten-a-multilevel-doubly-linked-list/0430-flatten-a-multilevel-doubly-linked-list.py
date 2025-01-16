@@ -13,8 +13,9 @@ class Solution:
         if not head:
             return None
         
-        prev = None
         curr = None
+        prev = None
+
         stack = [head]
 
         while stack:
@@ -26,16 +27,14 @@ class Solution:
             
             if curr.next:
                 stack.append(curr.next)
-            
+
             if curr.child:
                 stack.append(curr.child)
                 curr.child = None
             
             prev = curr
-        
-        return head
-        
 
+        return head
             
                 
 
