@@ -7,11 +7,11 @@ class Solution:
         for start,end in intervals:
             prev_end = res[-1][1]
 
-            if prev_end >= start:
-                res[-1][1] = max(prev_end, end)
+            if start <= prev_end:
+                res[-1][1] = max(end, prev_end)
             else:
-                res.append([start,end])
-            
+                res.append([start, end])
+
         return res
 
         
