@@ -8,17 +8,17 @@ class Solution:
     def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
-
         
         res = []
         q = deque([root])
 
         while q:
-            row_max = q[0].val
+            # Could do this instead:
+            row_max = float('-inf')  # or don't initialize at all
             n = len(q)
             for i in range(n):
                 node = q.popleft()
-                row_max = max(row_max, node.val)
+                row_max = max(row_max, node.val)  # This would work for first value too
                 if node.left:
                     q.append(node.left)
                 if node.right:
