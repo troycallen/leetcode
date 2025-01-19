@@ -15,7 +15,6 @@ class Solution:
         
         curr = None
         prev = None
-
         stack = [head]
 
         while stack:
@@ -33,9 +32,9 @@ class Solution:
                 curr.child = None
             
             prev = curr
-
+        
         return head
-            
+
                 
 
 
