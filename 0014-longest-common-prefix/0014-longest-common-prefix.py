@@ -1,7 +1,5 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        
-
         res = ""
         first = strs[0]
 
@@ -9,5 +7,6 @@ class Solution:
             for s in strs:
                 if i == len(s) or s[i] != first[i]:
                     return res
-            res += first[i]
-        return res  
+            res += s[i]
+        return res
+            
