@@ -7,14 +7,14 @@ class Solution:
                 stack[-1][1] += 1
             else:
                 stack.append([c, 1])
-                
             
             if stack and stack[-1][1] == k:
                 stack.pop()
+            
+            
         
-
         res = ""
         for char, count in stack:
             res += char * count
-    
+        
         return res
