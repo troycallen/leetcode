@@ -16,6 +16,7 @@ class OrderedStream:
             idKey += 1
             self.ptr = idKey
 
+        return res
 
 
 # Your OrderedStream object will be instantiated and called as such:
