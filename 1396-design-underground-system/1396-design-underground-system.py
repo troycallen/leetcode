@@ -18,6 +18,8 @@ class UndergroundSystem:
         else:
             self.travelTimes[(start,end)] = [total_time, 1]
         
+        del self.checkins[id]
+        
     def getAverageTime(self, startStation: str, endStation: str) -> float:
         time, count = self.travelTimes[(startStation, endStation)]
 
