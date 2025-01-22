@@ -3,16 +3,10 @@ class Solution:
         res = ""
         first = strs[0]
 
-        #flower
-        # f 0
-        # l 1
-        # o 2
-        # w 3
-
         for i in range(len(first)):
-            for s in strs[1:]:
-                if i == len(s) or s[i] != first[i]:
+            for s in strs:
+                if s[i] != first[i] or i == len(s):
                     return res
-            res += first[i]
+            res += s[i]
+        
         return res
-            
