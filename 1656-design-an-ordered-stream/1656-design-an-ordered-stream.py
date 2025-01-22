@@ -1,5 +1,4 @@
 class OrderedStream:
-    import heapq
 
     def __init__(self, n: int):
         self.stream = {}
@@ -17,7 +16,6 @@ class OrderedStream:
             idKey += 1
             self.ptr = idKey
 
-        return res
 
 
 # Your OrderedStream object will be instantiated and called as such:
