@@ -17,4 +17,4 @@ class Solution:
             last -=1 
         
     
-        #print(nums1)
+        # nums 1 has extra space so we can focus loop on that
