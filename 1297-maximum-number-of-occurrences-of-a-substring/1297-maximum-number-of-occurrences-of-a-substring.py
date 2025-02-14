@@ -4,11 +4,14 @@ class Solution:
         counts = defaultdict(int)
 
         for i in range(len(s) - minSize + 1):
-            substr = s[i:i + minSize]
-
-            if len(set(substr)) <= maxLetters:
-                counts[substr] += 1
-        
-        return max(counts.values()) if counts else 0
+            substring = s[i:i + minSize]
+            
+            if len(Counter(substring)) <= maxLetters:
+                counts[substring] += 1
+            
+        if counts:
+            return max(counts.values())
+        else:
+            return 0
 
         
