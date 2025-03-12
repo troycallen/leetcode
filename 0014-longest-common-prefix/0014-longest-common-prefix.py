@@ -10,5 +10,7 @@ class Solution:
 
             res += first[i]
         
+        return res
+        
 
             
