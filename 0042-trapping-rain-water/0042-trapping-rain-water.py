@@ -12,13 +12,15 @@ class Solution:
 
         while L < R:
             if height[L] < height[R]:
+                L += 1
                 left_max = max(height[L], left_max)
                 water += left_max - height[L]
-                L += 1
+                
             else:
+                R -= 1
                 right_max = max(height[R], right_max)
                 water += right_max - height[R]
-                R -= 1
+                
         return water
 
         
