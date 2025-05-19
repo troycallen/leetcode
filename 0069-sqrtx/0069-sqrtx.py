@@ -9,6 +9,7 @@ class Solution:
 
             if m ** 2 < x:
                 l = m + 1
+                # set res to m since there might not be a perfect answer e.g. 2.8432942
                 res = m
             elif m ** 2 > x:
                 r = m - 1
