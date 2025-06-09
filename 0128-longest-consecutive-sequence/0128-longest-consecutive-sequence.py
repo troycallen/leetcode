@@ -9,11 +9,18 @@ class Solution:
                 while i + length in numSet:
                     length += 1
                 
-            longest = max(longest, length)
+                longest = max(longest, length)
         
 
         return longest
                 
+        
+        
+                
+
+
+        
+
         
         
                 
