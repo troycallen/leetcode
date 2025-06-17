@@ -1,7 +1,13 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        def climb(i):
-            if i >= n:
-                return i == n
-            return climb(i + 1) + climb(i + 2)
-        return climb(0)
+        current = 1
+        prev = 1
+
+        for i in range(n - 1):
+            temp = prev
+            prev = prev + current
+            current = temp
+        
+        return prev
+
+        
