@@ -4,10 +4,10 @@ class Solution:
         prev = 1
 
         for i in range(n - 1):
-            temp = prev
-            prev = prev + current
-            current = temp
+            temp = current
+            current = prev + temp
+            prev = temp
         
-        return prev
+        return current
 
         
