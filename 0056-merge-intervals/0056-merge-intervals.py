@@ -4,10 +4,11 @@ class Solution:
         intervals.sort()
         res.append(intervals[0])
 
-        for start, end in intervals:
+        for start,end in intervals:
             prev_end = res[-1][1]
-            if start <= prev_end:
-                res[-1][1] = max(end, prev_end)
+
+            if prev_end >= start:
+                res[-1][1] = max(prev_end, end)
             else:
                 res.append([start,end])
         
