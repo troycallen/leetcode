@@ -6,5 +6,7 @@ class Solution:
             diff = target - v
             if diff in prev:
                 return prev[diff], i
-            
+
             prev[v] = i
+        
+        
