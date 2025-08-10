@@ -3,10 +3,17 @@ class Solution:
         res = defaultdict(list)
 
         for i in strs:
-            count = [0] * 26
+            counts = [0] * 26
+            print(i)
             for c in i:
-                count[ord(c) - ord('a')] += 1
-            res[tuple(count)].append(i)
+                #print(c)
+                counts[ord(c) - ord('a')] += 1
+            
+            #print(counts)
+            counts = tuple(counts)
+            res[counts].append(i)
 
-        return list(res.values())
+            
+            #res.append()
         
+        return list((res.values()))
