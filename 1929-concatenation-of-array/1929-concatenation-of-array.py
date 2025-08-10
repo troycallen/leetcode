@@ -1,15 +1,12 @@
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        res = []
-        curr = 0
+        ans = []
 
-        for i in range(n*2):
-            if i >= n:
-                res.append(nums[curr])
-                curr += 1
+        for i in range(n * 2):
+            if i < n:
+                ans.append(nums[i])
             else:
-
-                res.append(nums[i])
-        
-        return res
+                ans.append(nums[i-n])
+            
+        return ans
