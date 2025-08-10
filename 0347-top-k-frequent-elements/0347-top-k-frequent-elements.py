@@ -5,15 +5,17 @@ class Solution:
 
         counts = Counter(nums)
 
-        #print(counts)
+
+        print(counts)
 
         for num, cnt in counts.items():
             heapq.heappush(heap, (-cnt, num))
-        
-        #print(heap)
+    
+
         for i in range(k):
             cnt, num = heapq.heappop(heap)
             res.append(num)
-            
+        
         return res
+
         
