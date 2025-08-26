@@ -1,31 +1,30 @@
 class Solution:
-    def reorganizeString(self, s: str) -> str:
+    def reorganizeString(self, s : str) -> str:
         counts = Counter(s)
-
-        max_heap = [[-cnt, char] for char, cnt in counts.items()]
-        #print(type(max_heap))
-        #print(counts)
-        heapq.heapify(max_heap) # O(n)
         prev = None
         res = ""
 
-        while max_heap or prev:
-            if prev and not max_heap:
+        maxHeap = [[-cnt, char] for char, cnt in counts.items()]
+        heapq.heapify(maxHeap)
+
+        while maxHeap or prev:
+            if prev and not maxHeap:
                 return ""
             
-            cnt, char = heapq.heappop(max_heap)
-            print(cnt, char)
+
+            cnt, char = heapq.heappop(maxHeap)
 
             cnt += 1
             res += char
 
             if prev:
-                heapq.heappush(max_heap, prev)
+                heapq.heappush(maxHeap, prev)
                 prev = None
             
             if cnt != 0:
                 prev = [cnt, char]
             
-            
         return res
+
         
+            
