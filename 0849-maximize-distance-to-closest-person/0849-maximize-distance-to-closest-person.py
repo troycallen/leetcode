@@ -1,22 +1,21 @@
 class Solution:
     def maxDistToClosest(self, seats: List[int]) -> int:
-       
-        prev = 0
-        max_dist = 0
+        prev = 0 
+        dist = 0 
 
         for curr, seat in enumerate(seats):
-            if seat:
+            if seat: # if a seat with val 1 is found
                 if seats[prev]:
-                    max_dist = max(max_dist, (curr - prev) // 2)
+                    # if we also have a seat to the left
+                    dist = max(dist, (curr - prev) // 2)
                 else:
-                    max_dist = max(max_dist, (curr- prev))
+                    dist = max(dist, curr - prev)
                 
                 prev = curr
-            
+
         
         if seats[prev]:
-            max_dist = max(max_dist, len(seats) - prev - 1)
+            dist = max(dist, len(seats) - prev - 1)
         
-        return max_dist
- 
+        return dist
  
