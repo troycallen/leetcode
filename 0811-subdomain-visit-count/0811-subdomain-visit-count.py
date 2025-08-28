@@ -1,6 +1,6 @@
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        res = Counter()
+        res = defaultdict(int)
         print(res)
 
         for domain in cpdomains:
