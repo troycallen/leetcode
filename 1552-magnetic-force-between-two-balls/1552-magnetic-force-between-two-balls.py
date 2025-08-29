@@ -2,7 +2,7 @@ class Solution:
     def maxDistance(self, position: List[int], m: int) -> int:
         position.sort()
 
-        L = 1
+        L = 0
         R = position[-1] - position[0]
         force = 0
 
@@ -18,10 +18,10 @@ class Solution:
                     balls += 1
                 
             if balls >= m:
-                    force = mid
-                    L = mid + 1
+                force = mid
+                L = mid + 1
             else:
-                    R = mid - 1
+                R = mid - 1
         
         return force
             
