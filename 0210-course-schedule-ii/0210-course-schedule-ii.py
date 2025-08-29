@@ -5,6 +5,7 @@ class Solution:
             adj[i] = []
         for a,b in prerequisites:
             adj[a].append(b)
+
         # for course schedule ii
         res = []
         cycle = set()
@@ -21,7 +22,6 @@ class Solution:
                 if not dfs(child):
                     return False
             cycle.remove(cur)
-
             seen.add(cur)
 
             # for course schedule ii 
