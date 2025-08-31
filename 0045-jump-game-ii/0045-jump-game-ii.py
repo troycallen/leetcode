@@ -1,15 +1,14 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
-        max_reach = 0
         curr_reach = 0
+        max_reach = 0 
         count = 0
 
         for i in range(len(nums) - 1):
-            max_reach = max(max_reach, nums[i] + i)
+            max_reach = max(max_reach, i + nums[i])
 
             if i == curr_reach:
                 count += 1
                 curr_reach = max_reach
-                
-        return count      
-
+            
+        return count
