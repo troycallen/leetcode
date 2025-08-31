@@ -5,24 +5,24 @@ class Solution:
             graph[a].append(b)
             graph[b].append(a)
         
-
         res = []
 
-        print(graph)
-        for node, neighbors in graph.items():
-            if len(neighbors) == 1:
-                res = [node, neighbors[0]]
-                break
-
+        for node, neighbor in graph.items():
+            if len(neighbor) == 1:
+                res = [node, neighbor[0]]
         
         while len(res) < len(pairs) + 1:
             last = res[-1]
-            second_last = res[-2]
+            prev = res[-2]
 
             candidates = graph[last]
 
-            next_element = candidates[0] if candidates[0] != second_last else candidates[1]
+            next_ele = candidates[0] if candidates[0] != prev else candidates[1]
 
-            res.append(next_element)
-
+            res.append(next_ele)
+        
         return res
+
+        
+
+                
