@@ -3,14 +3,16 @@ class Solution:
         counts = defaultdict(int)
 
         for i in range(len(s) - minSize + 1):
-            #print(s[i])
-            #counts[s[i]] += 1
-            substring = s[i: i + minSize]
-            if len(set(substring)) <= maxLetters:
-                counts[substring] += 1
-            
+            substr = (s[i:i + minSize])
+            #counts[substr] += 1
+            if len(set(substr)) <= maxLetters:
+                counts[substr] += 1
+            print(substr)
         
         return max(counts.values()) if counts else 0
+
+        
+
 
 
         
