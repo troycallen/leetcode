@@ -1,37 +1,38 @@
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        adj = {}
-        for i in range(numCourses):
-            adj[i] = []
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]):
+        adj = defaultdict(list)
+
         for a,b in prerequisites:
             adj[a].append(b)
-
-        # for course schedule ii
-        res = []
+        
         cycle = set()
         seen = set()
+        res = []
 
         def dfs(cur):
             if cur in cycle:
                 return False
+            
             if cur in seen:
                 return True
 
             cycle.add(cur)
+
             for child in adj[cur]:
                 if not dfs(child):
-                    return False
+                    return []
+            
             cycle.remove(cur)
             seen.add(cur)
-
-            # for course schedule ii 
-            res.append(cur) 
+            res.append(cur)
             return True
 
         for i in range(numCourses):
             if not dfs(i):
                 return []
-                
-        return res
-
         
+        return res
+                
+        
+        
+
