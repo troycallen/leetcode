@@ -26,7 +26,7 @@ class Solution:
             cycle.remove(cur)
             seen.add(cur)
             res.append(cur)
-            return [1]
+            return True
 
         for i in range(numCourses):
             if not dfs(i):
