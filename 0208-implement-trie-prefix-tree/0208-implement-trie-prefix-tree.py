@@ -2,7 +2,7 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.EOW = False
-        
+
 class Trie:
     def __init__(self):
         self.root = TrieNode()
@@ -14,7 +14,7 @@ class Trie:
                 cur.children[c] = TrieNode()
             cur = cur.children[c]
         cur.EOW = True
-
+            
     def search(self, word: str) -> bool:
         cur = self.root
         for c in word:
