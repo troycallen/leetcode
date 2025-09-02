@@ -20,7 +20,7 @@ class Solution:
 
             for child in adj[cur]:
                 if not dfs(child):
-                    return []
+                    return False
             
             cycle.remove(cur)
             seen.add(cur)
