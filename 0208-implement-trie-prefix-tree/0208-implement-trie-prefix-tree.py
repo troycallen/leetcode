@@ -2,7 +2,7 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.EOW = False
-
+        
 class Trie:
     def __init__(self):
         self.root = TrieNode()
