@@ -20,12 +20,13 @@ class Solution:
 
             for child in adj[cur]:
                 if not dfs(child):
+                    # this is falsy so could be []
                     return False
             
             cycle.remove(cur)
             seen.add(cur)
             res.append(cur)
-            return True
+            return [1]
 
         for i in range(numCourses):
             if not dfs(i):
