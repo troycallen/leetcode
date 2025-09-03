@@ -1,6 +1,9 @@
 class Solution:
     def brightestPosition(self, lights: List[List[int]]) -> int:
         events = []
+        currB = 0
+        maxB = 0
+        bestPos = 0
 
         for pos, val in lights:
             start = pos - val
@@ -9,16 +12,15 @@ class Solution:
             events.append((end, -1))
         
         events.sort()
-        currB, maxB, pos = 0, 0, 0
-
-        print(events)
 
         for position, change in events:
-            print(position,change)
             currB += change
+
             if currB > maxB:
                 currB = maxB
-                pos = position
+                bestPos = position
         
-        return pos
+        return bestPos
+
+        
             
