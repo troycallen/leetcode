@@ -10,10 +10,9 @@ class Solution:
                 else:
                     dist = max(dist, curr - prev)
                 prev = curr
-        
+            
         if seats[prev]:
-            dist = max(dist, (len(seats) - prev - 1))
+            dist = max(dist, len(seats) - prev - 1)
         
         return dist
-
             
