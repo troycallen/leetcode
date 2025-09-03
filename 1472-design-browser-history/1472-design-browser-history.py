@@ -9,13 +9,13 @@ class BrowserHistory:
         self.cur = ListNode(homepage)
 
     def visit(self, url: str) -> None:
-        self.cur.next = ListNode(url, prev = self.cur)
+        self.cur.next = ListNode(url, prev=  self.cur)
         self.cur = self.cur.next
 
     def back(self, steps: int) -> str:
         while self.cur.prev and steps > 0:
-            self.cur = self.cur.prev
-            steps -=1 
+            self.cur = self.cur.prev 
+            steps -= 1
         return self.cur.val
 
     def forward(self, steps: int) -> str:
@@ -23,6 +23,7 @@ class BrowserHistory:
             self.cur = self.cur.next
             steps -=1
         return self.cur.val
+
 
 # Your BrowserHistory object will be instantiated and called as such:
 # obj = BrowserHistory(homepage)
