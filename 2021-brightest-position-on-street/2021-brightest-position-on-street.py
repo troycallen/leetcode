@@ -1,31 +1,23 @@
 class Solution:
-    def brightestPosition(self, lights: list[list[int]]) -> int:
-        # Initialize event list
+    def brightestPosition(self, lights: List[List[int]]) -> int:
         events = []
+
+        for position, rangeVal in lights:
+            start = position - rangeVal
+            end = position + rangeVal + 1
+            events.append((start, 1))
+            events.append((end, -1))
         
-        # Convert each light into two events: start of brightness and end of brightness
-        for position, radius in lights:
-            events.append((position - radius, 1))   # entering brightness
-            events.append((position + radius + 1, -1))  # leaving brightness
-        
-        print(events)
-        # Sort events by coordinate
         events.sort()
-        
-        # Initialize brightness, maximum brightness, and result position
-        brightness = 0
+        currBrightness = 0
         maxBrightness = 0
-        resultPosition = 0
-        
-        # Sweep through events
-        for coordinate, delta in events:
-            
-            # Update brightness
-            brightness += delta
-            
-            # Check for maximum brightness and update result
-            if brightness > maxBrightness:
-                maxBrightness = brightness
-                resultPosition = coordinate
-        
-        return resultPosition
+        bestPos = 0
+
+        for pos, change in events:
+            print(pos, change)
+
+            currBrightness += change
+            if currBrightness > maxBrightness:
+                currBrightness = maxBrightness
+                bestPos = pos
+        return bestPos
