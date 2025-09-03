@@ -4,23 +4,15 @@ class Solution:
         numSet = set(nums)
 
         for i in numSet:
-            if i - 1 not in numSet:
-                length = 0
-                while i + length in numSet:
-                    length += 1
-                
-                longest = max(longest, length)
+            if (i - 1) in numSet:
+                continue
+            length = 1
+            while (i + 1) in numSet:
+                i += 1
+                length += 1
+            
+            longest = max(longest, length)
         
-
         return longest
-                
-        
-        
-                
-
 
         
-
-        
-        
-                
