@@ -1,9 +1,8 @@
 class Solution:
     def reorganizeString(self, s: str) -> str:
         counts = Counter(s)
-        res = ""
-        #count = 0
         prev = None
+        res = ""
 
         max_heap = [[-cnt, char] for char, cnt in counts.items()]
         heapq.heapify(max_heap)
@@ -12,13 +11,12 @@ class Solution:
             if prev and not max_heap:
                 return ""
             
+
             cnt, char = heapq.heappop(max_heap)
             cnt += 1
             res += char
-            print(cnt, res)
 
             if prev:
-                print(prev)
                 heapq.heappush(max_heap, prev)
                 prev = None
             
